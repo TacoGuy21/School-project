@@ -8,134 +8,39 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --accent: rgba(120,200,255,0.9);
-      --text: rgba(235,240,255,0.95);
-      --muted: rgba(200,210,220,0.7);
-    }
+    /* Use Orbitron for essay as well */
+.essay {
+  font-family: "Orbitron", sans-serif;
+  margin-top: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted);
+  text-shadow: 0 0 3px rgba(255,255,255,0.05);
+}
 
-    html,body {
-      height: 100%;
-      margin: 0;
-      overflow: hidden;
-      font-family: "Inter", sans-serif;
-      color: var(--text);
-      background: #000;
-    }
+/* Make glass panel more square and reduce movement */
+.glass-panel {
+  position: absolute;
+  right: 40px;
+  top: 50px;
+  width: 400px;      /* fixed square-ish width */
+  height: 450px;     /* fixed height to look more like a rectangle */
+  padding: 25px;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 0 15px rgba(0,0,0,0.7);
+  z-index: 2;
+  transition: background 0.3s ease; /* removed translateY movement */
+}
 
-    /* Phobos gif background */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: url("https://upload.wikimedia.org/wikipedia/commons/d/db/Orbits_of_Phobos_and_Deimos.gif") center/cover no-repeat;
-      z-index: 0;
-    }
+.glass-panel:hover {
+  background: rgba(255,255,255,0.08);
+  transform: none; /* no floating movement */
+}
 
-    @keyframes slowZoom {
-      from { transform: scale(1) translateY(0px); }
-      to { transform: scale(1.07) translateY(-6px); }
-    }
-
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 1;
-    }
-
-    .glass-panel {
-      position: absolute;
-      right: 40px;
-      top: 50px;
-      width: 50vw;
-      min-width: 280px;
-      max-width: 650px;
-      height: auto;
-      padding: 25px;
-      border-radius: 15px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.15);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      box-shadow: 0 0 15px rgba(0,0,0,0.7);
-      z-index: 2;
-      transition: all 0.5s ease;
-    }
-
-    .glass-panel:hover {
-      background: rgba(255,255,255,0.08);
-      transform: translateY(-2px);
-    }
-
-    .header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 10px var(--accent);
-    }
-
-    .title {
-      font-family: "Orbitron", sans-serif;
-      font-size: 18px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      text-shadow: 0 0 6px rgba(120,200,255,0.4);
-    }
-
-    .subtitle {
-      font-size: 12px;
-      color: var(--muted);
-      margin-left: auto;
-    }
-
-    .essay {
-      margin-top: 8px;
-      font-size: 15px;
-      line-height: 1.6;
-      color: var(--muted);
-      text-shadow: 0 0 3px rgba(255,255,255,0.05);
-    }
-
-    .essay p {
-      margin-bottom: 12px;
-    }
-
-    .essay strong {
-      color: var(--text);
-    }
-
-    .essay::-webkit-scrollbar { width: 6px; }
-    .essay::-webkit-scrollbar-thumb {
-      background: rgba(255,255,255,0.1);
-      border-radius: 10px;
-    }
-
-    .footer {
-      position: absolute;
-      bottom: 10px;
-      left: 15px;
-      font-size: 12px;
-      color: rgba(150, 200, 255, 0.6);
-      text-shadow: 0 0 8px rgba(120,200,255,0.4);
-      font-family: "Orbitron", sans-serif;
-    }
-
-    .vignette { 
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(ellipse at 50% 30%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%);
-      pointer-events: none;
-      z-index: 3;
-    }
   </style>
 </head>
 <body>
