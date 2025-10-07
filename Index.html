@@ -9,12 +9,12 @@
 
   <style>
     :root {
-      --accent: #67d2ff;
-      --text: #f2f6ff;
-      --muted: rgba(220,230,255,0.8);
+      --accent: rgba(120,200,255,0.9);
+      --text: rgba(235,240,255,0.95);
+      --muted: rgba(200,210,220,0.7);
     }
 
-    html, body {
+    html,body {
       height: 100%;
       margin: 0;
       overflow: hidden;
@@ -23,111 +23,121 @@
       background: #000;
     }
 
-    /* Animated Phobos gif background */
+    /* Phobos gif background */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
       background: url("https://upload.wikimedia.org/wikipedia/commons/d/db/Orbits_of_Phobos_and_Deimos.gif") center/cover no-repeat;
-      filter: brightness(1) saturate(1.2) contrast(1.1);
-      animation: slowZoom 60s infinite alternate ease-in-out;
+      filter: brightness(1.1) saturate(1.1);
+      animation: slowZoom 90s infinite alternate ease-in-out;
       z-index: 0;
     }
 
     @keyframes slowZoom {
-      from { transform: scale(1); }
-      to { transform: scale(1.1); }
+      from { transform: scale(1) translateY(0px); }
+      to { transform: scale(1.07) translateY(-6px); }
     }
 
-    /* Overlay for contrast */
     .overlay {
       position: fixed;
       inset: 0;
-      background: linear-gradient(to top right, rgba(0,0,0,0.8), rgba(0,0,0,0.4));
+      background: rgba(0, 0, 0, 0.4);
       z-index: 1;
     }
 
-    /* Ad-style hero box */
+    /* Glass-like box but slightly rougher, amateur touch */
     .glass-panel {
       position: absolute;
-      left: 8%;
-      top: 50%;
-      transform: translateY(-50%);
-      width: min(600px, 70vw);
-      padding: 40px 50px;
-      background: rgba(10,10,20,0.4);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 20px;
-      backdrop-filter: blur(12px) saturate(130%);
-      box-shadow: 0 0 50px rgba(103,210,255,0.25);
+      right: 40px;
+      top: 50px;
+      width: 50vw;
+      min-width: 280px;
+      max-width: 650px;
+      height: auto;
+      padding: 25px;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      box-shadow: 0 0 15px rgba(0,0,0,0.7);
       z-index: 2;
-      animation: float 5s ease-in-out infinite alternate;
+      transition: all 0.5s ease;
     }
 
-    @keyframes float {
-      from { transform: translateY(-50%) translateX(0); }
-      to { transform: translateY(-52%) translateX(5px); }
+    .glass-panel:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-2px);
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent);
     }
 
     .title {
       font-family: "Orbitron", sans-serif;
-      font-size: clamp(26px, 4vw, 48px);
+      font-size: 18px;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      text-shadow: 0 0 25px rgba(103,210,255,0.6);
-      margin-bottom: 8px;
+      letter-spacing: 0.08em;
+      text-shadow: 0 0 6px rgba(120,200,255,0.4);
     }
 
-    .tagline {
-      font-size: clamp(14px, 1.2vw, 18px);
+    .subtitle {
+      font-size: 12px;
       color: var(--muted);
-      letter-spacing: 0.05em;
-      margin-bottom: 24px;
-      text-transform: uppercase;
-      opacity: 0.85;
+      margin-left: auto;
     }
 
     .essay {
-      font-size: clamp(14px, 1vw, 17px);
+      margin-top: 8px;
+      font-size: 15px;
       line-height: 1.6;
       color: var(--muted);
+      text-shadow: 0 0 3px rgba(255,255,255,0.05);
+    }
+
+    .essay p {
+      margin-bottom: 12px;
     }
 
     .essay strong {
       color: var(--text);
-      font-weight: 600;
     }
 
-    /* Call-to-action button */
-    .cta {
-      display: inline-block;
-      margin-top: 26px;
-      padding: 12px 28px;
+    /* Scrollbar look */
+    .essay::-webkit-scrollbar { width: 6px; }
+    .essay::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+    }
+
+    /* Amateur glowing footer tag */
+    .footer {
+      position: absolute;
+      bottom: 10px;
+      left: 15px;
+      font-size: 12px;
+      color: rgba(150, 200, 255, 0.6);
+      text-shadow: 0 0 8px rgba(120,200,255,0.4);
       font-family: "Orbitron", sans-serif;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #000;
-      background: var(--accent);
-      border-radius: 30px;
-      box-shadow: 0 0 25px rgba(103,210,255,0.5);
-      transition: all 0.3s ease;
-      cursor: pointer;
-      text-decoration: none;
     }
 
-    .cta:hover {
-      background: #fff;
-      box-shadow: 0 0 50px rgba(103,210,255,0.9);
-      transform: scale(1.05);
-    }
-
-    /* Vignette for cinematic look */
     .vignette {
       position: fixed;
       inset: 0;
-      background: radial-gradient(ellipse at center, rgba(0,0,0,0) 30%, rgba(0,0,0,0.5) 100%);
+      background: radial-gradient(ellipse at 50% 30%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%);
       pointer-events: none;
       z-index: 3;
     }
@@ -137,15 +147,21 @@
   <div class="overlay"></div>
 
   <div class="glass-panel">
-    <div class="title">Phobos Lyfe</div>
-    <div class="tagline">Experience Mars Like Never Before</div>
-    <div class="essay">
-      <p><strong>Life on Phobos</strong> isn’t just survival—it’s an experience beyond gravity itself. 
-      Imagine floating near Mars, the red planet looming close enough to watch storms swirl in real time. 
-      Here, each sunrise is alien gold, each night a view no Earth city could ever buy.</p>
+    <div class="header">
+      <div class="dot"></div>
+      <div class="title">Phobos — Reflections</div>
+      <div class="subtitle">by your name</div>
     </div>
-    <a href="#" class="cta">Reserve Your Habitat</a>
+
+    <div class="essay">
+      <p><strong>Life On Phobos</strong></p>
+      <p>
+        Phobos would be a wonderful experience to live on, and would secure you bragging rights for the rest of your life. Imagine telling your friends you can fly around your neighborhood, the reduced gravity on phobos brings you surprisingly close. It’s close proximity to mars give you a once in a lifetime view every day of your visit, it’s so close you could control a camera rover on the surface from your house!
+      </p>
+    </div>
   </div>
+
+  <div class="footer">Made by a space enthusiast 🚀</div>
 
   <div class="vignette"></div>
 </body>
