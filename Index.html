@@ -1,1 +1,146 @@
-<html lang="en"> <head> <meta charset="utf-8" /> <meta name="viewport" content="width=device-width,initial-scale=1" /> <title>Phobos Lyfe</title> <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet"> <style> :root { --accent: rgba(120,200,255,0.9); --text: rgba(235,240,255,0.95); --muted: rgba(200,210,220,0.7); } html,body { height: 100%; margin: 0; overflow: hidden; font-family: "Inter", sans-serif; color: var(--text); background: #000; } /* Phobos gif background */ body::before { content: ""; position: fixed; inset: 0; background: url("https://upload.wikimedia.org/wikipedia/commons/d/db/Orbits_of_Phobos_and_Deimos.gif") center/cover no-repeat; z-index: 0; } @keyframes slowZoom { from { transform: scale(1) translateY(0px); } to { transform: scale(1.07) translateY(-6px); } } .overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.4); z-index: 1; } .glass-panel { position: absolute; right: 40px; top: 50px; width: 50vw; min-width: 280px; max-width: 650px; height: auto; padding: 25px; border-radius: 15px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); box-shadow: 0 0 15px rgba(0,0,0,0.7); z-index: 2; transition: all 0.5s ease; } .glass-panel:hover { background: rgba(255,255,255,0.08); transform: translateY(-2px); } .header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; } .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); } .title { font-family: "Orbitron", sans-serif; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em; text-shadow: 0 0 6px rgba(120,200,255,0.4); } .subtitle { font-size: 12px; color: var(--muted); margin-left: auto; } .essay { margin-top: 8px; font-size: 15px; line-height: 1.6; color: var(--muted); text-shadow: 0 0 3px rgba(255,255,255,0.05); } .essay p { margin-bottom: 12px; } .essay strong { color: var(--text); } .essay::-webkit-scrollbar { width: 6px; } .essay::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; } .footer { position: absolute; bottom: 10px; left: 15px; font-size: 12px; color: rgba(150, 200, 255, 0.6); text-shadow: 0 0 8px rgba(120,200,255,0.4); font-family: "Orbitron", sans-serif; } .vignette { position: fixed; inset: 0; background: radial-gradient(ellipse at 50% 30%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%); pointer-events: none; z-index: 3; } </style> </head> <body> <div class="overlay"></div> <div class="glass-panel"> <div class="header"> </div> <div class="essay"> <p><strong>Life On Phobos</strong></p> <p> Phobos would be a wonderful experience to live on, and would secure you bragging rights for the rest of your life. Imagine telling your friends you can fly around your neighborhood, the reduced gravity on phobos brings you surprisingly close. It’s close proximity to mars give you a once in a lifetime view every day of your visit, it’s so close you could control a camera rover on the surface from your house! </p> </div> </div> <div class="vignette"></div> </body> </html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Phobos Lyfe</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent: rgba(120,200,255,0.9);
+  --text: rgba(235,240,255,0.95);
+  --muted: rgba(200,210,220,0.7);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  font-family: "Inter", sans-serif;
+  color: var(--text);
+  background: #000;
+}
+
+/* Phobos gif background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/d/db/Orbits_of_Phobos_and_Deimos.gif") center/cover no-repeat;
+  z-index: 0;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.glass-panel {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(90vw, 600px);
+  min-width: 280px;
+  max-width: 650px;
+  height: auto;
+  padding: 20px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  z-index: 2;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.title {
+  font-family: "Orbitron", sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 6px rgba(120,200,255,0.4);
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: var(--muted);
+  margin-left: auto;
+}
+
+.essay {
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted);
+  text-shadow: 0 0 3px rgba(255,255,255,0.05);
+}
+
+.essay p {
+  margin-bottom: 12px;
+}
+
+.essay strong {
+  color: var(--text);
+}
+
+.essay::-webkit-scrollbar {
+  width: 6px;
+}
+
+.essay::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+  font-size: 12px;
+  color: rgba(150, 200, 255, 0.6);
+  text-shadow: 0 0 8px rgba(120,200,255,0.4);
+  font-family: "Orbitron", sans-serif;
+}
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 30%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%);
+  pointer-events: none;
+  z-index: 3;
+}
+</style>
+</head>
+<body>
+<div class="overlay"></div>
+<div class="glass-panel">
+  <div class="header">
+    <div class="dot"></div>
+    <h1 class="title">Phobos Lyfe</h1>
+    <span class="subtitle">A Martian Moon</span>
+  </div>
+  <div class="essay">
+    <p>Phobos would be a wonderful experience to live on, and would secure you bragging rights for the rest of your life. Imagine telling your friends you can fly around your neighborhood, the reduced gravity on phobos brings you surprisingly close. It’s close proximity to mars give you a once in a lifetime view every day of your visit, it’s so close you could control a camera rover on the surface from your house!</p>
+  </div>
+</div>
+<div class="vignette"></div>
+</body>
+</html>
